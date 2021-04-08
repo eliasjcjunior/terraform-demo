@@ -1,3 +1,12 @@
 variable name {
-  type        = string
+  type  = string
+}
+
+variable service {
+  type  = string
+}
+
+
+variable policies {
+  type  = list(string)
 }

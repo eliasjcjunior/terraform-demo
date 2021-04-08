@@ -1,21 +1,32 @@
-module "network" {
+module network {
     source = "./network"
 
     name = "demo"
     azs  = ["us-east-1a", "us-east-1b"]
 }
 
-module "cluster" {
+module cluster {
     source = "./ecs/cluster"
 
     name = "demo"
 }
 
-module ecs_role {
+module ecs_execution_task_role {
   source = "./role"
 
-  name = "ecsServiceRole"
+  name = "ecsExecutionRole"
+  service = "ecs-tasks.amazonaws.com"
+  policies = ["arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"]
 }
+
+module ecs_task_role {
+  source = "./role"
+
+  name = "ecsTaskRole"
+  service = "ecs-tasks.amazonaws.com"
+  policies = []
+}
+
 
 module "service" {
     source = "./ecs/service"
@@ -24,6 +35,6 @@ module "service" {
     cluster_id = module.cluster.id
     subnets = module.network.subnet_ids
     security_groups = [module.network.sg_service_id]
-    task_role_arn = module.ecs_role.arn
-    execution_role_arn = module.ecs_role.arn
+    task_role_arn = module.ecs_task_role.arn
+    execution_role_arn = module.ecs_execution_task_role.arn
 }

@@ -1,3 +1,3 @@
 output arn {
-  value   = data.aws_iam_role.default.arn
+  value       = aws_iam_role.role.arn
 }
