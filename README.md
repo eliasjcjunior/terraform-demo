@@ -12,4 +12,4 @@ This project is just a simple example using some terraform concepts.
 * Configure aws credentials on your machine using [aws cli](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html) or [aws reserved environment variables](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html)
 *  Run terraform init
 *  Run terraform apply
-*  After that you can see the public ip in the ECS task to access the application
+*  After that you can take the public dns on application load balancer to access the server

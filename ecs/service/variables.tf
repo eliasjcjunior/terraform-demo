@@ -1,5 +1,19 @@
 variable name {
-  type  = string
+  type = string
+}
+
+variable port {
+  type    = number
+  default = 80
+}
+
+variable vpc_id {
+  type = string
+}
+
+variable deregistration_delay {
+  type    = string
+  default = 30
 }
 
 variable launch_type {
@@ -33,6 +47,6 @@ variable security_groups {
 }
 
 variable assign_public_ip {
-    type = bool
-    default = true
+  type    = bool
+  default = true
 }
