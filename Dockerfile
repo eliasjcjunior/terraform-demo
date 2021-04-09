@@ -28,4 +28,4 @@ COPY . .
 
 RUN terraform init
 
-RUN terraform destroy -auto-approve 
+RUN terraform apply -auto-approve 
