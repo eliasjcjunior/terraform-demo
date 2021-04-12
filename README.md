@@ -4,8 +4,8 @@ This project is just a simple example using some terraform concepts.
 
 ## Requirements
 
-* Terraform 13+ instaled
-* Bucket to store the state file (Here I'm using bucket name **state-tf-demo**). If you change de name you will need to change the new name in the backend configuration, on file **provider.tf**
+* Terraform 0.13+ instaled
+* Create a bucket to store the state file and change the bucket name on file **provider.tf**
 
 ## Instructions
 
